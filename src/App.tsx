@@ -1,70 +1,35 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Button from "./components/Button";
+import DisplayBalance from "./components/DisplayBalance";
+import DisplayBalances from "./components/DisplayBalances";
+import EntryLine from "./components/EntryLine";
+import MainHeader from "./components/MainHeader";
+import NewEntryForm from "./components/NewEntryForm";
 
 function App() {
   return (
     <div>
-      <h1>Budget</h1>
+      <MainHeader title="Budget" />
       <label>your Balance: </label>
-      <label>1,999,999</label>
+      <label>
+        <DisplayBalance value="1,999,999" />
+      </label>
 
-      <br />
+      <DisplayBalances />
 
+      <MainHeader title="History" />
       <table>
-        <tr>
-          <th>Income</th>
-          <th>Expenses</th>
-        </tr>
-        <tr>
-          <td>100,000,000</td>
-          <td>100,000</td>
-        </tr>
+        <EntryLine description="Something 1" value="$1,000" />
+        <EntryLine description="Something 2" value="$10,000" isExpense />
+        <EntryLine description="Something 3" value="$2,000" />
+        <EntryLine description="Something 4" value="$12,000" isExpense />
       </table>
 
-      <br />
-
-      <label>history</label>
-
-      <table>
-        <tr>
-          <td>Something</td>
-          <td>$1,000</td>
-          <td>
-            <button>edit</button> <button>delete</button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Something</td>
-          <td>$1,000</td>
-          <td>
-            <button>edit</button> <button>delete</button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Something</td>
-          <td>$1,000</td>
-          <td>
-            <button>edit</button> <button>delete</button>
-          </td>
-        </tr>
-      </table>
-
-      <h1>Add new transaction</h1>
-
-      <form action="">
-        <input type="text" placeholder="new shinny thing " />
-
-        <br />
-
-        <input type="text" placeholder="1,000" />
-      </form>
-
-      <button>Cancel</button>
-      <label>-</label>
-      <button>OK</button>
+      <MainHeader title="Add new transaction" />
+      <NewEntryForm />
+      <Button content="Cancel" />
+      <Button content="OK" />
     </div>
   );
 }

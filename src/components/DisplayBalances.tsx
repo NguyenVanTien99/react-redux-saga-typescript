@@ -1,7 +1,15 @@
 import React from "react";
 import DisplayBalance from "./DisplayBalance";
 
-const DisplayBalances = (): JSX.Element => {
+type DisplayBalancesProps = {
+  expenseTotal?: number;
+  incomeTotal?: number;
+};
+
+const DisplayBalances = ({
+  expenseTotal,
+  incomeTotal,
+}: DisplayBalancesProps): JSX.Element => {
   return (
     <table>
       <tr>
@@ -9,8 +17,8 @@ const DisplayBalances = (): JSX.Element => {
         <th>Expenses</th>
       </tr>
       <tr>
-        <DisplayBalance value="10,000" color="green" />
-        <DisplayBalance value="102,000" color="red" />
+        <DisplayBalance value={incomeTotal} color="green" />
+        <DisplayBalance value={expenseTotal} color="red" />
       </tr>
     </table>
   );

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   content: string;
 };
 
-const Button = ({ content }: ButtonProps): JSX.Element => {
-  return <button>{content}</button>;
+const Button = (props: ButtonProps): JSX.Element => {
+  const { content } = props;
+
+  return <button {...props}>{content}</button>;
 };
 
 export default Button;

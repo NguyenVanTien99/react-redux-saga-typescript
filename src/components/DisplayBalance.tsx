@@ -1,7 +1,7 @@
 import React from "react";
 
 type DisplayBalanceProps = {
-  value: string;
+  value?: number;
   color?: string | number;
 };
 

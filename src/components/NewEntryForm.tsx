@@ -1,16 +1,27 @@
-import React from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
+import Button from "./Button";
+import EntryForm from "./EntryForm";
 
-// type NewEntryFormProps = {
-//   content: string;
-// };
+type NewEntryFormProps = {
+  addEntry?: () => void;
+  value: number;
+  description: string;
+  isExpense: boolean;
+  setIsExpense: Dispatch<SetStateAction<boolean>>;
+  setDescription: Dispatch<SetStateAction<string>>;
+  setValue: Dispatch<SetStateAction<number>>;
+};
 
-const NewEntryForm = (): JSX.Element => {
+const NewEntryForm = ({
+  addEntry,
+  ...props
+}: NewEntryFormProps): JSX.Element => {
   return (
-    <form action="">
-      <input type="text" placeholder="new shinny thing " />
-      <br />
-      <input type="text" placeholder="1,000" />
-    </form>
+    <>
+      <EntryForm {...props} />
+      <Button content="Cancel" />
+      <Button content="OK" onClick={addEntry ? () => addEntry() : undefined} />
+    </>
   );
 };
 

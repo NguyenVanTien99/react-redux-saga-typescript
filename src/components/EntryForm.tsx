@@ -33,7 +33,7 @@ const EntryForm = (props: EntryFormProps): JSX.Element => {
         <br />
         <input
           name="Value"
-          type="text"
+          type="number"
           placeholder="1,000"
           value={value}
           onChange={(event) => setValue(toNumber(event.target.value))}
